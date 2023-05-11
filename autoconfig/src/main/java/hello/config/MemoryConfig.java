@@ -1,10 +1,9 @@
 package hello.config;
 
-import memory.MemoryCondition;
 import memory.MemoryController;
 import memory.MemoryFinder;
+import org.springframework.boot.autoconfigure.condition.ConditionalOnProperty;
 import org.springframework.context.annotation.Bean;
-import org.springframework.context.annotation.Conditional;
 import org.springframework.context.annotation.Configuration;
 
 /**
@@ -16,7 +15,7 @@ import org.springframework.context.annotation.Configuration;
  * MemoryConfig 는 무효화 -> memoryController, memoryFinder 빈은 등록되지 않음
  */
 @Configuration
-@Conditional(MemoryCondition.class)
+@ConditionalOnProperty(name = "memory", havingValue = "on")
 public class MemoryConfig {
     @Bean
     public MemoryController memoryController() {
