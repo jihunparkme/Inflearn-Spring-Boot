@@ -18,3 +18,7 @@ info:
   app:
     name: hello-actuator
     company: aaron
+
+logging:
+  level:
+    hello.controller: debug
